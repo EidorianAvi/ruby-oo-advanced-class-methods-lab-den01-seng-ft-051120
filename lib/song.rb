@@ -50,7 +50,12 @@ class Song
   end
   
   def self.create_from_filename file
-    
+    song = self.new
+    song_split = file.split(' - ')
+    song.name = song_split[1].chomp('.mp3')
+    song.artist_name = song_split[0]
+    @@all << song
+    song
   end
 
 end
